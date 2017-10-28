@@ -1,3 +1,4 @@
+require_relative 'user'
 # SauceBank accounts
 class Account
   attr_accessor :balance, :owner

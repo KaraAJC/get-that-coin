@@ -1,3 +1,4 @@
+require_relative 'account'
 # SauceBank
 class Bank
   attr_accessor :accounts
@@ -21,7 +22,9 @@ class Bank
   end
 
   def create_account(name)
-    Account.new({ owner: name })
+    new_acct = Account.new({ owner: name })
+    add_account(new_acct)
+    new_acct
   end
 
   def add_account(acct)

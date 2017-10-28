@@ -18,11 +18,15 @@ def get_choice(session_customer)
     puts session_customer.balance
     goodbye
   when 'withdraw'
-    # puts session_customer.withdraw()
-    # goodbye
+    puts 'how much?'
+    withdrawal_amount = gets.chomp
+    puts session_customer.withdraw(withdrawal_amount)
+    goodbye
   when 'deposit'
-    # puts session_customer
-    # goodbye
+    puts 'how much?'
+    deposit_amount = gets.chomp
+    puts session_customer.deposit(deposit_amount)
+    goodbye
   end
 end
 
@@ -31,7 +35,6 @@ def welcome
   name = gets.chomp
   session_customer = make_account(name)
   get_choice(session_customer)
-
 end
 
 welcome

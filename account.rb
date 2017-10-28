@@ -7,12 +7,10 @@ class Account
   end
 
   def deposit(amount)
-    @balance += amount
-    # goodbye method
+    @balance += amount.to_i
   end
 
   def withdraw(amount)
-    @balance -= amount
-    # goodbye method
+    @balance -= amount.to_i
   end
 end

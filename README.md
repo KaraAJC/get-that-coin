@@ -52,10 +52,13 @@ As a user:
 ### Wishlist Features & To-Dos
 > If you'd like to come up with something else, that's fine.  Just make sure that it has business rules, logic rules, and command line prompts.
 
-- [ ] test all classes
-- [ ] build a runner class
+- [x] build a runner class
 - [ ] persist the users' account
 - [ ] allow a user to close their account
+  - I'd like a user to:
+    -  have the ability to close an account, or
+    -  to open a new account if an account with them doesn't exist.
 - [ ] allow a user to maintain multiple accounts
 - [ ] allow a user to run multiple requests
+- [ ] test all classes
 

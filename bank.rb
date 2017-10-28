@@ -20,6 +20,10 @@ class Bank
     !query.empty?
   end
 
+  def create_account(name)
+    Account.new({ owner: name })
+  end
+
   def add_account(acct)
     puts 'account added.'
     @accounts << acct

@@ -7,10 +7,6 @@ class Runner
     @customer = ''
   end
 
-  def make_account(name)
-    Account.new({ owner: name })
-  end
-
   def print_menu(customer)
     puts <<-EOT
       #{customer.owner.name},
@@ -40,7 +36,7 @@ class Runner
   def welcome
     puts "Hello! What's your name?"
     name = gets.chomp
-    customer = make_account(name)
+    customer = find_customer
     print_menu(customer)
     get_choice(customer)
   end

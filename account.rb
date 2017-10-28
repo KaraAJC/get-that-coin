@@ -8,9 +8,11 @@ class Account
 
   def deposit(amount)
     @balance += amount.to_i
+    puts "your balance is now $#{@balance}"
   end
 
   def withdraw(amount)
     @balance -= amount.to_i
+    puts "your balance is now $#{@balance}"
   end
 end

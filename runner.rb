@@ -6,35 +6,38 @@ def make_account(name)
   Account.new({ owner: name })
 end
 
+def print_menu(customer)
+  puts <<-EOT
+    #{customer.owner.name},
+    would you like to:
+    - see your balance,
+    - make a withdrawal, or
+    - make a deposit?
+  EOT
+end
+
 def goodbye
   puts 'Goodbye, thanks for banking with SauceBank! Stay Saucey.'
 end
 
-def get_choice(session_customer)
-  puts "#{session_customer.owner.name}, would you like to see your balance, make a withdrawal or make a deposit?"
-  choice = gets.chomp
-  case choice
-  when 'balance'
-    puts session_customer.balance
-    goodbye
-  when 'withdraw'
+def get_choice(customer)
+  choice = gets.chomp.downcase
+  if choice == 'balance'
+    puts customer.balance
+  elsif %w[withdraw deposit].include?(choice)
     puts 'how much?'
-    withdrawal_amount = gets.chomp
-    puts session_customer.withdraw(withdrawal_amount)
-    goodbye
-  when 'deposit'
-    puts 'how much?'
-    deposit_amount = gets.chomp
-    puts session_customer.deposit(deposit_amount)
-    goodbye
+    amount = gets.chomp
+    customer.send(choice, amount)
   end
+  goodbye
 end
 
 def welcome
   puts "Hello! What's your name?"
   name = gets.chomp
-  session_customer = make_account(name)
-  get_choice(session_customer)
+  customer = make_account(name)
+  print_menu(customer)
+  get_choice(customer)
 end
 
 welcome

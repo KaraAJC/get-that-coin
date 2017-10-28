@@ -1,6 +1,5 @@
 require_relative 'account'
 require_relative 'user'
-require 'pry'
 
 def make_account(name)
   Account.new({ owner: name })
@@ -10,9 +9,9 @@ def print_menu(customer)
   puts <<-EOT
     #{customer.owner.name},
     would you like to:
-    - see your balance,
-    - make a withdrawal, or
-    - make a deposit?
+    - see your balance, (balance)
+    - make a withdrawal, (withdraw) or
+    - make a deposit? (deposit)
   EOT
 end
 

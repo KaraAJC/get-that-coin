@@ -4,11 +4,16 @@ Welcome to **SauceBank**! A bank for folks who got the Sauce!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Fa8XNIX040Y?rel=0" frameborder="0" allowfullscreen></iframe>
 
+## Get Started:
+
+- clone down the repository
+- run `ruby runner.rb`
+
+## About This challenge:
+
 This is a project for the [SheNomads Mentorship Program](https://shenomads.com/group-mentorship/).
 
   >  If you're looking for my rails optimal change implementation please checkout [get-that-coin.herokuapp.com](https://get-that-coin.herokuapp.com/)
-
-## This challenge:
 
 Back to basics! To be finished in Ruby or JavaScript:
 (No Rails or React)

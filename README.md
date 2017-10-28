@@ -49,5 +49,13 @@ As a user:
   - That number is then deducted from the balance.
   - I am shown my balance, and the word "Goodbye, thanks for banking with #{name_of_your_bank}.
 
-#### Wishlist Features
-If you'd like to come up with something else, that's fine.  Just make sure that it has business rules, logic rules, and command line prompts.
+### Wishlist Features & To-Dos
+> If you'd like to come up with something else, that's fine.  Just make sure that it has business rules, logic rules, and command line prompts.
+
+- [ ] test all classes
+- [ ] build a runner class
+- [ ] persist the users' account
+- [ ] allow a user to close their account
+- [ ] allow a user to maintain multiple accounts
+- [ ] allow a user to run multiple requests
+

@@ -5,6 +5,7 @@ class Runner
   attr_accessor :customer
   def initialize
     @bank = Bank.new
+    @bank.create_account('latoya')
     @magic_word = ''
     welcome
   end
@@ -63,6 +64,7 @@ class Runner
     run_bank
   end
 end
+
 
 Runner.new
 # run.welcome

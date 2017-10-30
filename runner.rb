@@ -5,6 +5,7 @@ class Runner
   attr_accessor :customer
   def initialize
     @bank = Bank.new
+    @magic_word = ''
     welcome
   end
 
@@ -24,6 +25,7 @@ class Runner
       - see your balance, (balance)
       - make a withdrawal, (withdraw) or
       - make a deposit? (deposit)
+      - end your session (exit)
     EOT
   end
 
@@ -36,21 +38,22 @@ class Runner
       puts customer.balance
     elsif %w[withdraw deposit].include?(choice)
       puts 'how much?'
-      amount = gets.chomp
-      customer.send(choice, amount)
+      customer.send(choice, gets.chomp)
+    elsif choice == 'exit'
+      @magic_word = 'goodbye'
     else
       puts "sorry, that's not an option..."
     end
-    print_menu
   end
 
   # loop method to let user get bal, +, -
   def run_bank
-    # print_menu
-    # while gets.chomp != 'goodbye'
-    #   make_choice(gets.chomp.downcase)
-    # end
-    # goodbye
+    while @magic_word != 'goodbye'
+      print_menu
+      request = gets.chomp.downcase
+      make_choice(request)
+    end
+    goodbye
   end
 
   def welcome

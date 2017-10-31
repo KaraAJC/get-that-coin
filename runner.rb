@@ -10,6 +10,13 @@ class Runner
     welcome
   end
 
+  def welcome
+    puts "Hello! What's your name?"
+    name = gets.chomp
+    @customer = confirm_customer(name)
+    run_bank
+  end
+
   def confirm_customer(name)
     if @bank.has_account?(name)
       @customer = find_account(name).first
@@ -19,35 +26,6 @@ class Runner
     end
   end
 
-  def print_menu
-    puts <<-EOT
-      #{customer.owner.name},
-      would you like to:
-      - see your balance, (balance)
-      - make a withdrawal, (withdraw) or
-      - make a deposit? (deposit)
-      - end your session (exit)
-    EOT
-  end
-
-  def goodbye
-    puts 'Goodbye, thanks for banking with SauceBank! Stay Saucey.'
-  end
-
-  def make_choice(choice)
-    if choice == 'balance'
-      puts customer.balance
-    elsif %w[withdraw deposit].include?(choice)
-      puts 'how much?'
-      customer.send(choice, gets.chomp)
-    elsif choice == 'exit'
-      @magic_word = 'goodbye'
-    else
-      puts "sorry, that's not an option..."
-    end
-  end
-
-  # loop method to let user get bal, +, -
   def run_bank
     while @magic_word != 'goodbye'
       print_menu
@@ -57,14 +35,34 @@ class Runner
     goodbye
   end
 
-  def welcome
-    puts "Hello! What's your name?"
-    name = gets.chomp
-    @customer = confirm_customer(name)
-    run_bank
+  def print_menu
+    puts <<-EOT
+      #{customer.owner.name},
+      would you like to:
+      - see your balance, (balance)
+      - make a withdrawal, (withdraw)
+      - make a deposit, (deposit) or
+      - end your session (exit)
+    EOT
+  end
+
+  def make_choice(choice)
+    if choice == 'balance'
+      puts customer.balance
+    elsif ['withdraw', 'deposit'].include?(choice)
+      puts 'how much?'
+      customer.send(choice, gets.chomp)
+      puts "your balance is now $#{customer.balance}"
+    elsif choice == 'exit'
+      @magic_word = 'goodbye'
+    else
+      puts "sorry, that's not an option..."
+    end
+  end
+
+  def goodbye
+    puts 'Goodbye, thanks for banking with SauceBank! Stay Saucey.'
   end
 end
 
-
 Runner.new
-# run.welcome
